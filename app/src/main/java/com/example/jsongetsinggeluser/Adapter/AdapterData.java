@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.jsongetsinggeluser.Model.Data;
 import com.example.jsongetsinggeluser.Model.Support;
 import com.example.jsongetsinggeluser.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -38,7 +39,10 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderView> {
     public void onBindViewHolder(@NonNull HolderView holder, int position) {
         Data dt =  dataList.get(position);
         Support sp = supportList.get(position);
-
+        holder.tv_email.setText(dt.getEmail());
+        holder.tv_firs.setText(dt.getFirstName());
+        holder.tv_last.setText(dt.getLastName());
+        Picasso.get().load(dt.getId()).into(holder.img_data);
     }
 
     @Override
@@ -52,6 +56,11 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderView> {
 
         public HolderView(@NonNull View itemView) {
             super(itemView);
+            tv_id = itemView.findViewById(R.id.tvId);
+            tv_firs = itemView.findViewById(R.id.tvFirst);
+            tv_last = itemView.findViewById(R.id.tvLast);
+            tv_email = itemView.findViewById(R.id.tvEmail);
+            img_data = itemView.findViewById(R.id.imgData);
         }
     }
 }
