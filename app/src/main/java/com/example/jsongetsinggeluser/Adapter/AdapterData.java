@@ -15,52 +15,55 @@ import com.example.jsongetsinggeluser.Model.Support;
 import com.example.jsongetsinggeluser.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
-
 public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderView> {
     Context context;
-    List<Data>  dataList;
-    List<Support> supportList;
-    public AdapterData(Context context,List<Data> dataList,List<Support> supportList){
-        this.context = context;
+    Data dataList;
+    Support support;
+
+    public AdapterData(Context context,Data dataList,Support support){
         this.dataList = dataList;
-        this.supportList=supportList;
+        this.context = context;
+        this.support = support;
     }
 
     @NonNull
     @Override
     public HolderView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_data,parent,false);
-        HolderView holderView = new HolderView(view);
-        return  holderView;
+        HolderView viewHolder = new HolderView(view);
+        return  viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull HolderView holder, int position) {
-        Data dt =  dataList.get(position);
-        Support sp = supportList.get(position);
-        holder.tv_email.setText(dt.getEmail());
-        holder.tv_firs.setText(dt.getFirstName());
-        holder.tv_last.setText(dt.getLastName());
-        Picasso.get().load(dt.getId()).into(holder.img_data);
+
+        holder.tv_id.setText(String.valueOf(dataList.getId()));
+        holder.tv_email.setText(dataList.getEmail());
+        holder.tv_first.setText(dataList.getFirstName());
+        holder.tv_last.setText(dataList.getLastName());
+        Picasso.get().load(dataList.getAvatar()).into(holder.imageView);
+        holder.tv_url.setText(support.getUrl());
+        holder.tv_Text.setText(support.getText());
     }
 
     @Override
     public int getItemCount() {
-        return dataList.size()+supportList.size();
+        return 1;
     }
 
     public class HolderView extends RecyclerView.ViewHolder{
-        TextView tv_id,tv_firs,tv_last,tv_email;
-        ImageView img_data;
-
+        TextView tv_id,tv_email,tv_first,tv_last,tv_url,tv_Text;
+        ImageView imageView;
         public HolderView(@NonNull View itemView) {
             super(itemView);
+
             tv_id = itemView.findViewById(R.id.tvId);
-            tv_firs = itemView.findViewById(R.id.tvFirst);
+            tv_email= itemView.findViewById(R.id.tvEmail);
+            tv_first = itemView.findViewById(R.id.tvFirst);
             tv_last = itemView.findViewById(R.id.tvLast);
-            tv_email = itemView.findViewById(R.id.tvEmail);
-            img_data = itemView.findViewById(R.id.imgData);
+            imageView = itemView.findViewById(R.id.imgData);
+            tv_url = itemView.findViewById(R.id.tvUrl);
+            tv_Text = itemView.findViewById(R.id.tvText);
         }
     }
 }
