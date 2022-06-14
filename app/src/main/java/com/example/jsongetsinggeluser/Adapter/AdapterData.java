@@ -46,6 +46,7 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderView> {
         holder.tv_Text.setText(support.getText());
     }
 
+
     @Override
     public int getItemCount() {
         return 1;

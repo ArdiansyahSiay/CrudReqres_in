@@ -1,6 +1,9 @@
 package com.example.jsongetsinggeluser;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     Data dataList;
     Support support;
+    Button bt_getList;
 //    List<Support> supportList = new ArrayList<>();
 
     @Override
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView=findViewById(R.id.rvData);
         layoutManager = new LinearLayoutManager(MainActivity.this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
+        bt_getList = findViewById(R.id.btGetList);
 
         lookData();
     }
@@ -52,6 +57,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResponseModel> call, Throwable t) {
                 Toast.makeText(MainActivity.this, "Error:"+t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+
+        bt_getList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,MainGetList.class));
+
+
             }
         });
     }
