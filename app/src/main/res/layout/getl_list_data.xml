@@ -13,6 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:id="@+id/imgList"
             android:src="@drawable/ic_launcher_background"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,17 +24,23 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama First:"
-                android:id="@+id/tvNamaFirstList"/>
+                android:text="Nama:"
+                android:id="@+id/tvNamaList"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama Last"
-                android:id="@+id/tvNamaLast"/>
+                android:text="Year"
+                android:id="@+id/tvYearList"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="tvEmailList"/>
+                android:text="Color"
+                android:id="@+id/tvColorList"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pantone"
+                android:id="@+id/tvPantunList"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

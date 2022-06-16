@@ -6,12 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="10dp"
     tools:context=".MainGetList">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rvGetList"
-        tools:listitem="@layout/activity_main_get_list"/>
+        tools:listitem="@layout/getl_list_data"/>
 
 </LinearLayout>
